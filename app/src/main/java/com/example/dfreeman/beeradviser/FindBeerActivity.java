@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
+import java.util.List;
 
 public class FindBeerActivity extends AppCompatActivity {
+    private BeerExpert expert = new BeerExpert();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,15 @@ public class FindBeerActivity extends AppCompatActivity {
 
         //Get selects color
         String beerType = String.valueOf(color.getSelectedItem());
+
         //Display results
-        brands.setText(beerType);
+        List<String> brandList = expert.getBrands(beerType);
+        StringBuilder brands2 = new StringBuilder();
+        for (String brand: brandList) {
+            brands2.append(brand).append('\n');
+        }
+
+        brands.setText(brands2);
 
     }
 }
