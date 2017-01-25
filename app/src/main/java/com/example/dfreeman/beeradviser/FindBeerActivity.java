@@ -8,7 +8,7 @@ import android.view.View;
 import java.util.List;
 
 public class FindBeerActivity extends AppCompatActivity {
-    private BeerExpert expert = new BeerExpert();
+    private final BeerExpert expert = new BeerExpert();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
